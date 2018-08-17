@@ -1,2 +1,2 @@
-# gemeos-interface
-interface do gemeos
+# Gemeos
+Baseado no Semantic-Ui Admin Template
