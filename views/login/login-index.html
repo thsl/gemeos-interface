@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta property="creator.productor" content="http://estruturaorganizacional.dados.gov.br/id/unidade-organizacional/NUMERO">
+        
+        <title>Gemeos - Sistema de Gerenciamento de Métricas e Ordens de Serviços</title>
+        <link rel="stylesheet" href="../../css/lib/font-awesome/font-awesome.min.css">
+        <link rel="stylesheet" href="../../css/lib/bootstrap/bootstrap.min.css">
+        <link rel="stylesheet" href="../../css/main.min.css">
+        <link rel="stylesheet" href="../../css/custom.css">
+    
+    </head>
+    <body>
+        <div id="barra-brasil" style="background:#7F7F7F; height: 20px; padding:0 0 0 10px;display:block;">
+            <ul id="menu-barra-temp" style="list-style:none;">
+                <li style="display:inline; float:left;padding-right:10px; margin-right:10px; border-right:1px solid #EDEDED">
+                    <a href="http://brasil.gov.br" style="font-family:sans,sans-serif; text-decoration:none; color:white;">Portal do Governo Brasileiro</a>
+                </li>
+                <li>
+                    <a style="font-family:sans,sans-serif; text-decoration:none; color:white;" href="http://epwg.governoeletronico.gov.br/barra/atualize.html">Atualize sua Barra de Governo</a>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="container mt-xl">
+            <div class="row">
+                <div class="col-md-5 offset-md-1 text-center">
+                    <img class="img-adaptative" src="../../img/equip-job.png" alt="Gemeos - Sistema de Gerenciamento de Métricas e Ordens de Serviços">
+                    <p class="mt-xl">Bem vindo ao</p>
+                    <h4>
+                        <strong>GEMEOS - Gerenciamento de Métricas e Ordens de Serviços</strong>
+                    </h4>
+                    <p>O sistema GEMEOS possui funcionalidades que apoiam a gestão das ordens de serviços abertas e das métricas utilizadas em cada contrato</p>
+                </div>
+                <div class="col-md-6 mt-md">
+                    <form class="sign-box">
+                        <div class="text-center">
+                            <img class="img-adaptative" src="../../img/logo-gemeos-c-md.png" alt="Gemeos - Sistema de Gerenciamento de Métricas e Ordens de Serviços">
+                        </div>
+                        <div class="divider-top">
+                            <div class="form-group">
+                                <label class="form-label semibold">Seu e-mail:</label>
+                                <input type="text" class="form-control" placeholder="E-mail or Nome de usuário"/>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label semibold">Sua senha:</label>
+                                <input type="password" class="form-control" placeholder="Senha"/>
+                            </div>
+                            <div class="form-group">
+                                <div class="checkbox float-left">
+                                    <input type="checkbox" id="signed-in"/> <label for="signed-in">Manter logado</label>
+                                </div>
+                                <div class="float-right reset">
+                                    <a href="#" data-toggle="modal" data-target="#ModalLembrarSenha">Esqueci a senha</a>
+                                </div>
+                            </div>
+                            <a href="../admin/dashboard.html" class="btn btn-rounded btn-primary">Entrar</a>
+                        </div>
+                        <div class="divider-top">
+                            <p class="sign-note">Não possui conta?
+                                <a href="#" data-toggle="modal" data-target="#ModalCadastro">Solicite seu acesso</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="row divider-top mt-md mb-xl">
+                <div class="col-12 text-center">
+                    <img src="../../img/ministerio-da-integracao-gov-sm.png" class="img-adaptative mt-md">
+                </div>
+            </div>
+        </div>
+        
+        
+        <div class="modal fade modal-custom" id="ModalLembrarSenha" role="dialog" aria-labelledby="ModalLembrarSenha" aria-hidden="true">
+            <div class="modal-dialog modal-sm modal-center-v">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="modal-close" data-dismiss="modal" aria-label="Close">
+                            <i class="font-icon-close-2"></i>
+                        </button>
+                        <h4 class="modal-title">Esqueceu a senha?</h4>
+                        <p>Informe o e-mail para que você possa resetar sua senha:</p>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label class="form-label semibold">Seu e-mail:</label>
+                            <input type="text" class="form-control" placeholder="E-mail ou Nome de usuário"/>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-rounded btn-primary">Enviar</button>
+                        <button type="button" class="btn btn-rounded btn-default" data-dismiss="modal">Cancelar</button>
+                    </div>
+                
+                </div>
+            </div>
+        </div><!--.modal -->
+        
+        
+        <div class="modal fade modal-custom" id="ModalCadastro" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <form id="cadastro-form" class="validate-form" name="" method="">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Editar responsavel</h4>
+                        </div>
+                        <div class="modal-body">
+                            
+                            <section class="card card-default">
+                                <header class="card-header">
+                                    <div class="row">
+                                        <div class="col-md-9">
+                                            <h5 class="semibold">
+                                                <i class="fa fa-file-text-o mr-xs" aria-hidden="true"></i> Vínculo do Usuário
+                                            </h5>
+                                        </div>
+                                    </div>
+                                </header>
+                                <div class="card-block">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <fieldset class="form-group">
+                                                <label class="form-label semibold">Vínculo:
+                                                    <span class="semibold text-danger">*</span></label>
+                                                <select class="select2 select2-arrow" id="selectvinculo" name="selectvinculo">
+                                                    <option value="0">Servidor</option>
+                                                    <option value="1">Servidor</option>
+                                                    <option value="2">Estagiário</option>
+                                                    <option value="3">Terceirizado</option>
+                                                </select>
+                                            </fieldset>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <fieldset class="form-group">
+                                                <label class="form-label semibold">CPF *</label>
+                                                <input type="text" class="form-control" id="cpf" name="cpf">
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </section>
+                            <section class="card card-default">
+                                <header class="card-header">
+                                    <div class="row">
+                                        <div class="col-md-9">
+                                            <h5 class="semibold">
+                                                <i class="fa fa-file-text-o mr-xs" aria-hidden="true"></i> Dados </h5>
+                                        </div>
+                                    </div>
+                                </header>
+                                <div class="card-block">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <fieldset class="form-group">
+                                                <label class="form-label semibold">Endereço<span class="semibold text-danger">*</span></label>
+                                                <input type="text" class="form-control" id="" name="" placeholder="Nome">
+                                            </fieldset>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <fieldset class="form-group">
+                                                <label class="form-label semibold">Bairro</label>
+                                                <input type="text" class="form-control" id="" name="" placeholder="Nome">
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <label class="form-label semibold">Número</label>
+                                            <input type="text" class="form-control" id="" name="" placeholder="Número">
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <fieldset class="form-group">
+                                                <label class="form-label semibold">CEP</label>
+                                                <input type="text" class="form-control" placeholder="CEP">
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-success btn-rounded">Exemplo de Validar</button>
+                            <button type="button" class="btn btn-success btn-rounded swal-btn-cancel" data-dismiss="modal">Exemplo ao Enviar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div><!--.modal-->
+        
+        
+        <footer>
+            <div id="footer-brasil"></div>
+        </footer>
+        
+        
+        <script src="../../js/lib/jquery/jquery.min.js"></script>
+        <script src="../../js/lib/tether/tether.min.js"></script>
+        <script src="../../js/lib/bootstrap/bootstrap.min.js"></script>
+        <script src="../../js/plugins.js"></script>
+        
+        
+              <!-- específico desta página -->
+        <script src="../../js/lib/datatables-net/datatables.min.js"></script>
+        <script src="../../js/start-datatables.js"></script>
+        
+        <script src="../../js/lib/bootstrap-select/bootstrap-select.min.js"></script>
+        <script src="../../js/lib/select2/select2.full.min.js"></script>
+        <script src="../../js/lib/select2/i18n/pt-BR.js"></script>
+        
+        
+        <script src="../../js/lib/input-mask/jquery.mask.min.js"></script>
+        <script src="../../js/lib/jquery-validate/jquery.validate.min.js"></script>
+    
+        <script src="../../js/lib/bootstrap-sweetalert/sweetalert.min.js"></script>
+        
+        <script src="../../js/app.js"></script>
+        <script src="login-index.js"></script>
+        
+        
+        <script defer="defer" src="//barra.brasil.gov.br/barra.js" type="text/javascript"></script>
+    </body>
+</html>

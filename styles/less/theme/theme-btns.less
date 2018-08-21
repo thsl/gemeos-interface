@@ -1,0 +1,51 @@
+.dropdown.dropdown-typical {
+  .dropdown-menu {
+    min-width: 190px;
+
+  }
+}
+
+.dropdown-menu {
+  width: 220px;
+  .dropdown-item {
+    white-space: normal;
+    border: none;
+  }
+}
+
+
+// responsividade nos dropdowns
+@media (max-width: 767px) {
+  .table-responsive .dropdown-menu {
+    position: static !important;
+  }
+}
+@media (min-width: 768px) {
+  .table-responsive {
+    overflow: visible;
+  }
+}
+
+
+
+
+.btn-group, .btn-group-vertical {
+  .btn {
+    &.btn-secondary-outline {
+      border-color: #d4dee6;
+      background-color: #efefef;
+      color: #6b7a85;
+      &:hover {
+        color: #91a1ad !important;
+      }
+    }
+    &.active {
+      background-color: #5cb85c;
+      border-color: #5cb85c;
+      color: #fff;
+      &:hover {
+        color: #fff !important;
+      }
+    }
+  }
+}

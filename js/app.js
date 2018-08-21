@@ -1,437 +1,857 @@
-﻿'use strict'
+$(document).ready(function(){
+/* ==========================================================================
+	Scroll
+	========================================================================== */
 
-$(document).ready(function () {
-    loadhtml();
-    paceLoading();
-    butonactions();
-    hamburger();
-    tabactions();
-    progressactions();
-    formelementactions();
-    messageclosebuttonactions()
-    notifyactions();
-    cardhoveractions();
-    colorize();
-    $(".ui.accordion").accordion();//accordion trigger
-    $(".ui.rating").rating();//rating trigger
-    $(".ui.dropdown").dropdown();//dropdown and select trigger
+	if (!("ontouchstart" in document.documentElement)) {
 
-    //sidebar trigger
-    $("#toc").sidebar({
-        dimPage: true,
-        transition: "overlay",
-        mobileTransition: "uncover"
-    });
-    //sidebar trigger
+		document.documentElement.className += " no-touch";
 
-    $("body").niceScroll({ cursorcolor: "#ddd", cursorwidth: 5, cursorborderradius: 0, cursorborder: 0, scrollspeed: 50, autohidemode: true, zindex: 9999999 });//body scroll tigger by nicescroll
-    
+		var jScrollOptions = {
+			autoReinitialise: true,
+			autoReinitialiseDelay: 100
+		};
+
+		$('.box-typical-body').jScrollPane(jScrollOptions);
+		$('.side-menu').jScrollPane(jScrollOptions);
+		//$('.side-menu-addl').jScrollPane(jScrollOptions);
+		$('.scrollable-block').jScrollPane(jScrollOptions);
+	}
+
+/* ==========================================================================
+    Header search
+    ========================================================================== */
+
+	$('.site-header .site-header-search').each(function(){
+		var parent = $(this),
+			overlay = parent.find('.overlay');
+
+		overlay.click(function(){
+			parent.removeClass('closed');
+		});
+
+		parent.clickoutside(function(){
+			if (!parent.hasClass('closed')) {
+				parent.addClass('closed');
+			}
+		});
+	});
+
+/* ==========================================================================
+    Header mobile menu
+    ========================================================================== */
+
+	// Dropdowns
+	$('.site-header-collapsed .dropdown').each(function(){
+		var parent = $(this),
+			btn = parent.find('.dropdown-toggle');
+
+		btn.click(function(){
+			if (parent.hasClass('mobile-opened')) {
+				parent.removeClass('mobile-opened');
+			} else {
+				parent.addClass('mobile-opened');
+			}
+		});
+	});
+
+	$('.dropdown-more').each(function(){
+		var parent = $(this),
+			more = parent.find('.dropdown-more-caption'),
+			classOpen = 'opened';
+
+		more.click(function(){
+			if (parent.hasClass(classOpen)) {
+				parent.removeClass(classOpen);
+			} else {
+				parent.addClass(classOpen);
+			}
+		});
+	});
+
+	// Left mobile menu
+	$('.hamburger').click(function(){
+		if ($('body').hasClass('menu-left-opened')) {
+			$(this).removeClass('is-active');
+			$('body').removeClass('menu-left-opened');
+			$('html').css('overflow','auto');
+		} else {
+			$(this).addClass('is-active');
+			$('body').addClass('menu-left-opened');
+			$('html').css('overflow','hidden');
+		}
+	});
+
+	$('.mobile-menu-left-overlay').click(function(){
+		$('.hamburger').removeClass('is-active');
+		$('body').removeClass('menu-left-opened');
+		$('html').css('overflow','auto');
+	});
+
+	// Right mobile menu
+	$('.site-header .burger-right').click(function(){
+		if ($('body').hasClass('menu-right-opened')) {
+			$('body').removeClass('menu-right-opened');
+			$('html').css('overflow','auto');
+		} else {
+			$('.hamburger').removeClass('is-active');
+			$('body').removeClass('menu-left-opened');
+			$('body').addClass('menu-right-opened');
+			$('html').css('overflow','hidden');
+		}
+	});
+
+	$('.mobile-menu-right-overlay').click(function(){
+		$('body').removeClass('menu-right-opened');
+		$('html').css('overflow','auto');
+	});
+
+/* ==========================================================================
+    Header help
+    ========================================================================== */
+
+	$('.help-dropdown').each(function(){
+		var parent = $(this),
+			btn = parent.find('>button'),
+			popup = parent.find('.help-dropdown-popup'),
+			jscroll;
+
+		btn.click(function(){
+			if (parent.hasClass('opened')) {
+				parent.removeClass('opened');
+				jscroll.destroy();
+			} else {
+				parent.addClass('opened');
+
+				$('.help-dropdown-popup-cont, .help-dropdown-popup-side').matchHeight();
+
+				if (!("ontouchstart" in document.documentElement)) {
+					setTimeout(function(){
+						jscroll = parent.find('.jscroll').jScrollPane(jScrollOptions).data().jsp;
+						//jscroll.reinitialise();
+					},0);
+				}
+			}
+		});
+
+		$('html').click(function(event) {
+		    if (
+		        !$(event.target).closest('.help-dropdown-popup').length
+		        &&
+		        !$(event.target).closest('.help-dropdown>button').length
+		        &&
+		        !$(event.target).is('.help-dropdown-popup')
+		        &&
+		        !$(event.target).is('.help-dropdown>button')
+		    ) {
+				if (parent.hasClass('opened')) {
+					parent.removeClass('opened');
+					jscroll.destroy();
+		        }
+		    }
+		});
+
+	});
+
+/* ==========================================================================
+    Side menu list
+    ========================================================================== */
+
+	$('.side-menu-list li.with-sub').each(function(){
+		var parent = $(this),
+			clickLink = parent.find('>span'),
+			subMenu = parent.find('>ul');
+
+		clickLink.click(function() {
+			if (parent.hasClass('opened')) {
+				parent.removeClass('opened');
+				subMenu.slideUp();
+				subMenu.find('.opened').removeClass('opened');
+			} else {
+				if (clickLink.parents('.with-sub').size() == 1) {
+					$('.side-menu-list .opened').removeClass('opened').find('ul').slideUp();
+				}
+				parent.addClass('opened');
+				subMenu.slideDown();
+			}
+		});
+	});
+
+
+/* ==========================================================================
+    Dashboard
+    ========================================================================== */
+
+	$(window).resize(function(){
+		$('body').click('click');
+	});
+
+	// Collapse box
+	$('.box-typical-dashboard').each(function(){
+		var parent = $(this),
+			btnCollapse = parent.find('.action-btn-collapse');
+
+		btnCollapse.click(function(){
+			if (parent.hasClass('box-typical-collapsed')) {
+				parent.removeClass('box-typical-collapsed');
+			} else {
+				parent.addClass('box-typical-collapsed');
+			}
+		});
+	});
+
+	// Full screen box
+	$('.box-typical-dashboard').each(function(){
+		var parent = $(this),
+			btnExpand = parent.find('.action-btn-expand'),
+			classExpand = 'box-typical-full-screen';
+
+		btnExpand.click(function(){
+			if (parent.hasClass(classExpand)) {
+				parent.removeClass(classExpand);
+				$('html').css('overflow','auto');
+			} else {
+				parent.addClass(classExpand);
+				$('html').css('overflow','hidden');
+			}
+		});
+	});
+
+/* ==========================================================================
+    Circle progress bar
+    ========================================================================== */
+
+	$(".circle-progress-bar").asPieProgress({
+		namespace: 'asPieProgress',
+		speed: 500
+	});
+
+	$(".circle-progress-bar").asPieProgress("start");
+
+
+	$(".circle-progress-bar-typical").asPieProgress({
+		namespace: 'asPieProgress',
+		speed: 25
+	});
+
+	$(".circle-progress-bar-typical").asPieProgress("start");
+
+/* ==========================================================================
+	Select
+	========================================================================== */
+
+	if ($('.bootstrap-select').size()) {
+		// Bootstrap-select
+		$('.bootstrap-select').selectpicker({
+			style: '',
+			width: '100%',
+			size: 8
+		});
+	}
+
+	if ($('.select2').size()) {
+		// Select2
+		//$.fn.select2.defaults.set("minimumResultsForSearch", "Infinity");
+
+		$('.select2').not('.manual').select2();
+
+		$(".select2-icon").not('.manual').select2({
+			templateSelection: select2Icons,
+			templateResult: select2Icons
+		});
+
+		$(".select2-arrow").not('.manual').select2({
+			theme: "arrow"
+		});
+
+		$('.select2-no-search-arrow').select2({
+			minimumResultsForSearch: "Infinity",
+			theme: "arrow"
+		});
+
+		$('.select2-no-search-default').select2({
+			minimumResultsForSearch: "Infinity"
+		});
+
+		$(".select2-white").not('.manual').select2({
+			theme: "white"
+		});
+
+		$(".select2-photo").not('.manual').select2({
+			templateSelection: select2Photos,
+			templateResult: select2Photos
+		});
+	}
+
+	function select2Icons (state) {
+		if (!state.id) { return state.text; }
+		var $state = $(
+			'<span class="font-icon ' + state.element.getAttribute('data-icon') + '"></span><span>' + state.text + '</span>'
+		);
+		return $state;
+	}
+
+	function select2Photos (state) {
+		if (!state.id) { return state.text; }
+		var $state = $(
+			'<span class="user-item"><img src="' + state.element.getAttribute('data-photo') + '"/>' + state.text + '</span>'
+		);
+		return $state;
+	}
+
+/* ==========================================================================
+	Datepicker
+	========================================================================== */
+
+	$('.datetimepicker-1').datetimepicker({
+		widgetPositioning: {
+			horizontal: 'right'
+		},
+		debug: false
+	});
+
+	$('.datetimepicker-2').datetimepicker({
+		widgetPositioning: {
+			horizontal: 'right'
+		},
+		format: 'LT',
+		debug: false
+	});
+
+/* ==========================================================================
+	Tooltips
+	========================================================================== */
+
+	// Tooltip
+	$('[data-toggle="tooltip"]').tooltip({
+		html: true
+	});
+
+	// Popovers
+	$('[data-toggle="popover"]').popover({
+		trigger: 'focus'
+	});
+
+/* ==========================================================================
+	Validation
+	========================================================================== */
+
+	$('#form-signin_v1').validate({
+		submit: {
+			settings: {
+				inputContainer: '.form-group'
+			}
+		}
+	});
+
+	$('#form-signin_v2').validate({
+		submit: {
+			settings: {
+				inputContainer: '.form-group',
+				errorListClass: 'form-error-text-block',
+				display: 'block',
+				insertion: 'prepend'
+			}
+		}
+	});
+
+	$('#form-signup_v1').validate({
+		submit: {
+			settings: {
+				inputContainer: '.form-group',
+				errorListClass: 'form-tooltip-error'
+			}
+		}
+	});
+
+	$('#form-signup_v2').validate({
+		submit: {
+			settings: {
+				inputContainer: '.form-group',
+				errorListClass: 'form-tooltip-error'
+			}
+		}
+	});
+
+/* ==========================================================================
+	Bar chart
+	========================================================================== */
+
+	$(".bar-chart").peity("bar",{
+		delimiter: ",",
+		fill: ["#919fa9"],
+		height: 16,
+		max: null,
+		min: 0,
+		padding: 0.1,
+		width: 384
+	});
+
+/* ==========================================================================
+	Full height box
+	========================================================================== */
+
+	function boxFullHeight() {
+		var sectionHeader = $('.section-header');
+		var sectionHeaderHeight = 0;
+
+		if (sectionHeader.size()) {
+			sectionHeaderHeight = parseInt(sectionHeader.height()) + parseInt(sectionHeader.css('padding-bottom'));
+		}
+
+		$('.box-typical-full-height').css('min-height',
+			$(window).height() -
+			parseInt($('.page-content').css('padding-top')) -
+			parseInt($('.page-content').css('padding-bottom')) -
+			sectionHeaderHeight -
+			parseInt($('.box-typical-full-height').css('margin-bottom')) - 2
+		);
+		$('.box-typical-full-height>.tbl, .box-typical-full-height>.box-typical-center').height(parseInt($('.box-typical-full-height').css('min-height')));
+	}
+
+	boxFullHeight();
+
+	$(window).resize(function(){
+		boxFullHeight();
+	});
+
+/* ==========================================================================
+	Chat
+	========================================================================== */
+
+	function chatHeights() {
+		$('.chat-dialog-area').height(
+			$(window).height() -
+			parseInt($('.page-content').css('padding-top')) -
+			parseInt($('.page-content').css('padding-bottom')) -
+			parseInt($('.chat-container').css('margin-bottom')) - 2 -
+			$('.chat-area-header').outerHeight() -
+			$('.chat-area-bottom').outerHeight()
+		);
+		$('.chat-list-in')
+			.height(
+				$(window).height() -
+				parseInt($('.page-content').css('padding-top')) -
+				parseInt($('.page-content').css('padding-bottom')) -
+				parseInt($('.chat-container').css('margin-bottom')) - 2 -
+				$('.chat-area-header').outerHeight()
+			)
+			.css('min-height', parseInt($('.chat-dialog-area').css('min-height')) + $('.chat-area-bottom').outerHeight());
+	}
+
+	chatHeights();
+
+	$(window).resize(function(){
+		chatHeights();
+	});
+
+/* ==========================================================================
+	Auto size for textarea
+	========================================================================== */
+
+	autosize($('textarea[data-autosize]'));
+
+/* ==========================================================================
+	Pages center
+	========================================================================== */
+
+	$('.page-center').matchHeight({
+		target: $('html')
+	});
+
+	$(window).resize(function(){
+		setTimeout(function(){
+			$('.page-center').matchHeight({ remove: true });
+			$('.page-center').matchHeight({
+				target: $('html')
+			});
+		},100);
+	});
+
+/* ==========================================================================
+	Cards user
+	========================================================================== */
+
+	$('.card-user').matchHeight();
+
+/* ==========================================================================
+	Fancybox
+	========================================================================== */
+
+	$(".fancybox").fancybox({
+		padding: 0,
+		openEffect	: 'none',
+		closeEffect	: 'none'
+	});
+
+/* ==========================================================================
+	Profile slider
+	========================================================================== */
+
+	$(".profile-card-slider").slick({
+		slidesToShow: 1,
+		adaptiveHeight: true,
+		prevArrow: '<i class="slick-arrow font-icon-arrow-left"></i>',
+		nextArrow: '<i class="slick-arrow font-icon-arrow-right"></i>'
+	});
+
+/* ==========================================================================
+	Posts slider
+	========================================================================== */
+
+	var postsSlider = $(".posts-slider");
+
+	postsSlider.slick({
+		slidesToShow: 4,
+		adaptiveHeight: true,
+		arrows: false,
+		responsive: [
+			{
+				breakpoint: 1700,
+				settings: {
+					slidesToShow: 3
+				}
+			},
+			{
+				breakpoint: 1350,
+				settings: {
+					slidesToShow: 2
+				}
+			},
+			{
+				breakpoint: 992,
+				settings: {
+					slidesToShow: 3
+				}
+			},
+			{
+				breakpoint: 768,
+				settings: {
+					slidesToShow: 2
+				}
+			},
+			{
+				breakpoint: 500,
+				settings: {
+					slidesToShow: 1
+				}
+			}
+		]
+	});
+
+	$('.posts-slider-prev').click(function(){
+		postsSlider.slick('slickPrev');
+	});
+
+	$('.posts-slider-next').click(function(){
+		postsSlider.slick('slickNext');
+	});
+
+/* ==========================================================================
+	Recomendations slider
+	========================================================================== */
+
+	var recomendationsSlider = $(".recomendations-slider");
+
+	recomendationsSlider.slick({
+		slidesToShow: 4,
+		adaptiveHeight: true,
+		arrows: false,
+		responsive: [
+			{
+				breakpoint: 1700,
+				settings: {
+					slidesToShow: 3
+				}
+			},
+			{
+				breakpoint: 1350,
+				settings: {
+					slidesToShow: 2
+				}
+			},
+			{
+				breakpoint: 992,
+				settings: {
+					slidesToShow: 3
+				}
+			},
+			{
+				breakpoint: 768,
+				settings: {
+					slidesToShow: 2
+				}
+			},
+			{
+				breakpoint: 500,
+				settings: {
+					slidesToShow: 1
+				}
+			}
+		]
+	});
+
+	$('.recomendations-slider-prev').click(function(){
+		recomendationsSlider.slick('slickPrev');
+	});
+
+	$('.recomendations-slider-next').click(function(){
+		recomendationsSlider.slick('slickNext');
+	});
+
+/* ==========================================================================
+	Box typical full height with header
+	========================================================================== */
+
+	function boxWithHeaderFullHeight() {
+		/*$('.box-typical-full-height-with-header').each(function(){
+			var box = $(this),
+				boxHeader = box.find('.box-typical-header'),
+				boxBody = box.find('.box-typical-body');
+
+			boxBody.height(
+				$(window).height() -
+				parseInt($('.page-content').css('padding-top')) -
+				parseInt($('.page-content').css('padding-bottom')) -
+				parseInt(box.css('margin-bottom')) - 2 -
+				boxHeader.outerHeight()
+			);
+		});*/
+	}
+
+	boxWithHeaderFullHeight();
+
+	$(window).resize(function(){
+		boxWithHeaderFullHeight();
+	});
+
+/* ==========================================================================
+	Gallery
+	========================================================================== */
+
+	$('.gallery-item').matchHeight({
+		target: $('.gallery-item .gallery-picture')
+	});
+
+/* ==========================================================================
+	File manager
+	========================================================================== */
+
+	function fileManagerHeight() {
+		$('.files-manager').each(function(){
+			var box = $(this),
+				boxColLeft = box.find('.files-manager-side'),
+				boxSubHeader = box.find('.files-manager-header'),
+				boxCont = box.find('.files-manager-content-in'),
+				boxColRight = box.find('.files-manager-aside');
+
+			var paddings = parseInt($('.page-content').css('padding-top')) +
+							parseInt($('.page-content').css('padding-bottom')) +
+							parseInt(box.css('margin-bottom')) + 2;
+
+			boxColLeft.height('auto');
+			boxCont.height('auto');
+			boxColRight.height('auto');
+
+			if ( boxColLeft.height() <= ($(window).height() - paddings) ) {
+				boxColLeft.height(
+					$(window).height() - paddings
+				);
+			}
+
+			if ( boxColRight.height() <= ($(window).height() - paddings - boxSubHeader.outerHeight()) ) {
+				boxColRight.height(
+					$(window).height() -
+					paddings -
+					boxSubHeader.outerHeight()
+				);
+			}
+
+			boxCont.height(
+				boxColRight.height()
+			);
+		});
+	}
+
+	fileManagerHeight();
+
+	$(window).resize(function(){
+		fileManagerHeight();
+	});
+
+/* ==========================================================================
+	Mail
+	========================================================================== */
+
+	function mailBoxHeight() {
+		$('.mail-box').each(function(){
+			var box = $(this),
+				boxHeader = box.find('.mail-box-header'),
+				boxColLeft = box.find('.mail-box-list'),
+				boxSubHeader = box.find('.mail-box-work-area-header'),
+				boxColRight = box.find('.mail-box-work-area-cont');
+
+			boxColLeft.height(
+				$(window).height() -
+				parseInt($('.page-content').css('padding-top')) -
+				parseInt($('.page-content').css('padding-bottom')) -
+				parseInt(box.css('margin-bottom')) - 2 -
+				boxHeader.outerHeight()
+			);
+
+			boxColRight.height(
+				$(window).height() -
+				parseInt($('.page-content').css('padding-top')) -
+				parseInt($('.page-content').css('padding-bottom')) -
+				parseInt(box.css('margin-bottom')) - 2 -
+				boxHeader.outerHeight() -
+				boxSubHeader.outerHeight()
+			);
+		});
+	}
+
+	mailBoxHeight();
+
+	$(window).resize(function(){
+		mailBoxHeight();
+	});
+
+/* ==========================================================================
+	Nestable
+	========================================================================== */
+
+	$('.dd-handle').hover(function(){
+		$(this).prev('button').addClass('hover');
+		$(this).prev('button').prev('button').addClass('hover');
+	}, function(){
+		$(this).prev('button').removeClass('hover');
+		$(this).prev('button').prev('button').removeClass('hover');
+	});
+
+/* ==========================================================================
+	Widget weather slider
+	========================================================================== */
+
+	$('.widget-weather-slider').slick({
+		arrows: false,
+		dots: true,
+		infinite: false,
+		slidesToShow: 4,
+		slidesToScroll: 4
+	});
+
+/* ==========================================================================
+	Addl side menu
+	========================================================================== */
+
+	setTimeout(function(){
+		if (!("ontouchstart" in document.documentElement)) {
+			$('.side-menu-addl').jScrollPane(jScrollOptions);
+		}
+	},1000);
+
+/* ==========================================================================
+	Widget chart combo
+	========================================================================== */
+
+	$('.widget-chart-combo-content-in, .widget-chart-combo-side').matchHeight();
+
+
+/* ==========================================================================
+	Header notifications
+	========================================================================== */
+
+	// Tabs hack
+	$('.dropdown-menu-messages a[data-toggle="tab"]').click(function (e) {
+		e.stopPropagation();
+		e.preventDefault();
+		$(this).tab('show');
+
+		// Scroll
+		if (!("ontouchstart" in document.documentElement)) {
+			jspMessNotif = $('.dropdown-notification.messages .tab-pane.active').jScrollPane(jScrollOptions).data().jsp;
+		}
+	});
+
+	// Scroll
+	var jspMessNotif,
+		jspNotif;
+
+	$('.dropdown-notification.messages').on('show.bs.dropdown', function () {
+		if (!("ontouchstart" in document.documentElement)) {
+			jspMessNotif = $('.dropdown-notification.messages .tab-pane.active').jScrollPane(jScrollOptions).data().jsp;
+		}
+	});
+
+	$('.dropdown-notification.messages').on('hide.bs.dropdown', function () {
+		if (!("ontouchstart" in document.documentElement)) {
+			jspMessNotif.destroy();
+		}
+	});
+
+	$('.dropdown-notification.notif').on('show.bs.dropdown', function () {
+		if (!("ontouchstart" in document.documentElement)) {
+			jspNotif = $('.dropdown-notification.notif .dropdown-menu-notif-list').jScrollPane(jScrollOptions).data().jsp;
+		}
+	});
+
+	$('.dropdown-notification.notif').on('hide.bs.dropdown', function () {
+		if (!("ontouchstart" in document.documentElement)) {
+			jspNotif.destroy();
+		}
+	});
+
+/* ==========================================================================
+	Steps progress
+	========================================================================== */
+
+	function stepsProgresMarkup() {
+		$('.steps-icon-progress').each(function(){
+			var parent = $(this),
+				cont = parent.find('ul'),
+				padding = 0,
+				padLeft = (parent.find('li:first-child').width() - parent.find('li:first-child .caption').width())/2,
+				padRight = (parent.find('li:last-child').width() - parent.find('li:last-child .caption').width())/2;
+
+			padding = padLeft;
+
+			if (padLeft > padRight) padding = padRight;
+
+			cont.css({
+				marginLeft: -padding,
+				marginRight: -padding
+			});
+		});
+	}
+
+	stepsProgresMarkup();
+
+	$(window).resize(function(){
+		stepsProgresMarkup();
+	});
+
+/* ========================================================================== */
+
+	$('.control-panel-toggle').on('click', function() {
+		var self = $(this);
+		
+		if (self.hasClass('open')) {
+			self.removeClass('open');
+			$('.control-panel').removeClass('open');
+		} else {
+			self.addClass('open');
+			$('.control-panel').addClass('open');
+		}
+	});
+
+	$('.control-item-header .icon-toggle, .control-item-header .text').on('click', function() {
+		var content = $(this).closest('li').find('.control-item-content');
+
+		if (content.hasClass('open')) {
+			content.removeClass('open');
+		} else {
+			$('.control-item-content.open').removeClass('open');
+			content.addClass('open');
+		}
+	});
 });
-
-//Sidebar Menu Size Animaton Function
-function hamburger() {
-    $(".hamburger").on("click", function () {
-        if ("show" == $(this).data("name")) {
-            $(".toc").animate({
-                width: "100px"
-            }, 350);
-            $(".logo").animate({
-                width: "100px"
-            }, 350);
-            $(".logo img").transition("scale").attr("src", "img/thumblogo.png");
-            if (window.location.href.indexOf("mail.html") > -1) {
-                $(".toc").load("html/loadthinmailmenu.html", function () {
-                    $(".ui .dropdown").dropdown({
-                        transition: "fade up",
-                        on: "hover"
-                    });
-
-                    $(".logoImg").transition('jiggle')
-                });
-            }
-            else {
-                $(".toc").load("html/loadthinmenu.html", function () {
-                    $(".ui .dropdown").dropdown({
-                        transition: "fade up",
-                        on: "hover"
-                    });
-
-                    $(".logoImg").transition('jiggle')
-                });
-            }
-
-            $(this).data("name", "hide");
-        } else {
-            $(".toc").animate({
-                width: "250px"
-            }, 350);
-            $(".logo").animate({
-                width: "250px"
-            }, 350);
-            $(".logo img").attr("src", "img/logo.png");
-            if (window.location.href.indexOf("mail.html") > -1) {
-                $(".toc").load("html/loadmailmenu.html", function () {
-                    $(".ui.accordion").accordion();
-                    $(".logoImg").transition("tada");
-                });
-                $(this).data("name", "show");
-            }
-            else {
-                $(".toc").load("html/loadsidemenu.html", function () {
-                    $(".ui.accordion").accordion();
-                    $(".logoImg").transition("tada");
-                });
-                $(this).data("name", "show");
-            }
-        }
-    });
-}
-//Sidebar Menu Size Animaton Function
-
-//Pace Loading (On Navbar) Function
-function paceLoading() {
-    var paceOptions = {
-        restartOnRequestAfter: false
-    };
-
-    $(document).ajaxStart(function () {
-        Pace.restart();
-    });
-}
-//Pace Loading (On Navbar) Function
-
-//Sidebar,Navbar,Mobile Sidebar,Mobile Navbar Loading Function
-function loadhtml() {
-    if (window.location.href.indexOf("mail.html") > -1) {
-        $(".toc").load("html/loadmailmenu.html", function () {
-            $(".ui.accordion").accordion();
-        });
-        $(".navbarmenu").load("html/loadnavbar.html", function () {
-            hamburger();
-            $(".ui.dropdown").dropdown();
-        });
-        $("#toc").load("html/loadmobilside.html", function () { });
-        $(".mobilenavbar").load("html/loadmobilnavbar.html", function () {
-            $(".ui.dropdown").dropdown({
-                allowCategorySelection: true
-            });
-            $("#toc").sidebar("attach events", ".launch.button, .view-ui, .launch.item");
-        });
-    }
-    else {
-        $(".toc").load("html/loadsidemenu.html", function () {
-            $(".ui.accordion").accordion();
-            $(".sidemenu").niceScroll({ cursorcolor: "#ddd", cursorwidth: 5, cursorborderradius: 0, cursorborder: 0, scrollspeed: 50, autohidemode: true, zindex: 9999999, bouncescroll: true });//sidebar scrool trigger by nicescroll
-        });
-        $(".navbarmenu").load("html/loadnavbar.html", function () {
-            hamburger();
-            $(".ui.dropdown").dropdown();
-        });
-        $("#toc").load("html/loadmobilside.html", function () {
-            $(".ui.accordion").accordion();
-        });
-        $(".mobilenavbar").load("html/loadmobilnavbar.html", function () {
-
-            $(".ui.dropdown").dropdown({
-                allowCategorySelection: true
-            });
-            $("#toc").sidebar("attach events", ".launch.button, .view-ui, .launch.item");
-        });
-    }
-}
-//Sidebar,Navbar,Mobile Sidebar,Mobile Navbar Loading Function
-
-//Sidebar And Navbar Coloring Function (This button on Footer)
-function colorize() {
-    var a;
-    var b;
-    $(".footer").load("html/loadfooter.html", function () {
-        $(".colorlist li a").on("click", function (b) {
-            var c = $(this).attr("data-addClass");
-            b.preventDefault();
-            $(".navmenu").removeClass(a).addClass(c);
-            a = c;
-        });
-        $(".sidecolor li a").on("click", function (a) {
-            var c = $(this).attr("data-addClass");
-            a.preventDefault();
-            $(".sidemenu").removeClass(b).addClass(c);
-            $(".accordion").removeClass("inverted").addClass("inverted");
-            b = c;
-        });
-        $(".colorize").popup({
-            on: "click"
-        });
-    });
-}
-//Sidebar And Navbar Coloring Function (This button on Footer)
-
-//Button page and some buttons triggers function
-function butonactions() {
-    $(".save-button").click(function () {
-        $(".save-modal").modal("show");
-        setTimeout(function () {
-            $(".save-modal").modal("hide");
-        }, 1500);
-    });
-
-    $(".saving").on("click", function () {
-        $(this).addClass("loading").delay(1500).queue(function () {
-            $(this).removeClass("loading").dequeue();
-        });
-    }).state({
-        text: {
-            inactive: "Save",
-            active: "Saved"
-        }
-    });
-
-    $(".loadmore").on("click", function () {
-        $(this).addClass("loading").delay(300).queue(function () {
-            $(this).removeClass("loading").dequeue();
-        });
-    }).state({
-        text: {
-            inactive: "Show More",
-            active: "Show More"
-        }
-    });
-
-    var a = $(".ui.toggle.button");
-    a.state({
-        text: {
-            inactive: "Vote",
-            active: "Voted"
-        }
-    });
-    var a = $(".ui.follow.button");
-    a.state({
-        text: {
-            inactive: "Follow",
-            active: "Following"
-        }
-    });
-
-    $(".transition.demo .button").on("click", function () {
-        var a = $(this).text();
-        if ("string" == typeof a) a = a.toLowerCase();
-        $(".transition.demo .image").each(function (b, c) {
-            var d = $(this);
-            setTimeout(function () {
-                d.transition(a);
-            }, 100 * b);
-        });
-    });
-    $(".custom.button").popup({
-        popup: $(".custom.popup"),
-        on: "click"
-    });
-    $(".teal.button").popup({
-        on: "click"
-    });
-
-    $(".follow").on("click", function () {
-        $(this).addClass("loading").delay(1500).queue(function () {
-            $(this).removeClass("loading").dequeue();
-        });
-    }).state({
-        text: {
-            inactive: "Follow",
-            active: "Following"
-        }
-    });
-}
-//Button page and some buttons triggers function
-
-//Tooltip page and some tooltip trigger function
-function popupactions() {
-    $("input").popup({
-        on: "focus"
-    });
-
-    $(".ui.button").popup({
-        on: "click"
-    });
-    $(".ui.image").popup();
-    $(".ui.card").popup();
-    $(".icon.link").popup();
-    $(".avt").popup({
-        position: "top center"
-    });
-    $('.custom.button').popup({
-        popup: $('.custom.popup'),
-        on: 'click'
-    });
-}
-//Tooltip page and some tooltip trigger function
-
-//Tab page tab trigger functions
-function tabactions() {
-    $(".menu .item").tab();
-    $("#context1 .item").tab({
-        context: $("#context1")
-    });
-    $(".paths.example .item ").tab({
-        context: ".paths.example"
-    });
-    $(".history.example .item").tab({
-        context: ".history.example",
-        history: true
-    });
-
-    $(".tabular.menu .item").tab({
-        history: true,
-        historyType: "hash"
-    });
-}
-//Tab page tab trigger functions
-
-
-
-//Progress page progress action trigger function
-function progressactions() {
-    $(".increment").on("click", function () {
-        $(".prr").progress({
-            percent: "increment"
-        });
-    });
-    $(".attached.progress.demo").progress({
-        label: false,
-        value: Math.floor(5 * Math.random()) + 1
-    });
-    $(".basic.progress.demo").progress({
-        label: false,
-        value: Math.floor(5 * Math.random()) + 1,
-        text: {
-            active: "{percent}% Complete",
-            success: "Done!"
-        }
-    });
-    $("#example6").progress({
-        label: true,
-        total: 10,
-        value: Math.floor(5 * Math.random()) + 1,
-        text: {
-            active: "{percent}% Done",
-            success: "Completed!"
-        }
-    });
-    $(".file.progress.demo").progress({
-        label: false,
-        text: {
-            active: "Uploading {value} of {total}",
-            success: "{total} Files Uploaded!"
-        }
-    });
-    var c = function () {
-        $(".demo.progress").progress("increment");
-        setTimeout(c, 2e3 * Math.random() + 300);
-    };
-    setTimeout(c, 1e3);
-    setInterval(function () {
-        $(".demo.progress").progress("reset");
-    }, 3e4);
-}
-//Progress page progress action trigger function
-
-//Form Elements (Radio,Checkbox) trigger function
-function formelementactions() {
-  
-
-    $(".list .master.checkbox").checkbox({
-        onChecked: function () {
-            var a = $(this).closest(".checkbox").siblings(".list").find(".checkbox");
-            a.checkbox("check");
-        },
-        onUnchecked: function () {
-            var a = $(this).closest(".checkbox").siblings(".list").find(".checkbox");
-            a.checkbox("uncheck");
-        }
-    });
-
-    $(".list .child.checkbox").checkbox({
-        fireOnInit: true,
-        onChange: function () {
-            var a = $(this).closest(".list"), b = a.closest(".item").children(".checkbox"), c = a.find(".checkbox"), d = true, e = true;
-            c.each(function () {
-                if ($(this).checkbox("is checked")) e = false; else d = false;
-            });
-            if (d) b.checkbox("set checked"); else if (e) b.checkbox("set unchecked"); else b.checkbox("set indeterminate");
-        }
-    });
-
-    $(".ui.check").on("click", function () {
-        $(this).addClass("loading").delay(500).queue(function () {
-            $(this).removeClass("loading").dequeue();
-        });
-    }).state({
-        text: {
-            inactive: "Select All",
-            active: "Unselect All"
-        }
-    });
-}
-//Form Elements (Radio,Checkbox) trigger function
-
-
-//Notification triggers funtcion in notification page
-function notifyactions() {
-    $(".not").on("click", function () {
-        var a, b, c, d, e, f, g, h, i, j, k;
-        d = $(this).attr("data-size");
-        e = $(this).attr("data-message");
-        c = $(this).attr("data-type");
-        f = $(this).attr("data-icon");
-        g = $(this).attr("data-title");
-        h = $(this).attr("data-image");
-        i = $(this).attr("data-sound");
-        a = $(this).attr("data-show-animation");
-        b = $(this).attr("data-hide-animation");
-        j = $(this).attr("data-position");
-        k = $(this).attr("data-delay");
-        Lobibox.notify(c, {
-            size: d,
-            rounded: false,
-            delayIndicator: true,
-            msg: e,
-            icon: f,
-            title: g,
-            showClass: a,
-            hideClass: b,
-            sound: i,
-            img: h,
-            delay: k
-        });
-    });
-}
-//Notification triggers funtcion in notification page
-
-//Message element close button trigger function
-function messageclosebuttonactions() {
-    $(".message .close").on("click", function () {
-        $(this).closest(".message").transition("fade");
-    });
-}
-//Message element close button trigger function
-
-//Card hover function
-function cardhoveractions() {
-    $(".special.cards .image").dimmer({
-        on: "hover"
-    });
-}
-//Card hover function
-
-//Lazy Load image function (in cards page)
-$('.segment .image img').visibility({
-    type: 'image',
-    transition: 'fade in',
-    duration: 1000
-});
-//Lazy Load image function (in cards page)
-
-//some tooltip function
-$(".avt").popup({
-    position: "top center"
-});
-//some tooltip function
