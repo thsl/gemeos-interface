@@ -1,11 +1,39 @@
+// Desabilita o enviar no enter, para não dar conflito com o TagEditor
+/*$('#cadastro-form').on('keyup keypress', function(e) {
+    var keyCode = e.keyCode || e.which;
+    if (keyCode === 13) {
+        e.preventDefault();
+        return false;
+    }
+});
+
+
+$(window).on('load',function(){
+    $('#ModalCadastro').modal('show');
+});
+*/
+
+$('.tags-editor-textarea').tagEditor({
+    placeholder: 'Digite aqui'
+});
+
 $(".select2").select2({
     "language": "pt-BR"
 });
 
 
+$('.charac-couter-150').simplyCountable({
+    counter: '.charac-couter-150',
+    countType: 'characters',
+    strictMax: true,
+    countDirection: 'down',
+    maxCount: 150
+});
+
 $(document).ready(function () {
 // Mascaramento dos campos
     $('#cpf').mask('000.000.000-00', {reverse: true, placeholder: "000.000.000-00"});
+    $('.telefone').mask('(00) 00000-0000', {reverse: false, placeholder: "(00) 00000-0000"});
 
 
 // Validador de campos
@@ -20,7 +48,7 @@ $(document).ready(function () {
             cpf: "required"
         },
         messages: {
-            cpf: "Este campo não pode ser em branco"
+            cpf: "O CPF é importante para o acesso"
         },
         errorElement: "em",
         errorPlacement: function (error, element) {
@@ -64,3 +92,7 @@ $(document).ready(function () {
     });
 
 });
+
+
+
+
