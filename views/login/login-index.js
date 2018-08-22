@@ -22,8 +22,10 @@ $(".select2").select2({
 });
 
 
-$('.charac-couter-150').simplyCountable({
-    counter: '.charac-couter-150',
+// Contador de caracteres
+
+$('#motivos-textarea').simplyCountable({
+    counter: '#motivos-textarea-counter',
     countType: 'characters',
     strictMax: true,
     countDirection: 'down',
