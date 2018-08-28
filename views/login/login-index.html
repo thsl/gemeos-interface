@@ -41,8 +41,8 @@
                         </div>
                         <div class="divider-top">
                             <div class="form-group">
-                                <label class="form-label semibold">Seu e-mail:</label>
-                                <input type="text" class="form-control" placeholder="E-mail or Nome de usuário"/>
+                                <label class="form-label semibold">Seu cpf:</label>
+                                <input type="tel" class="form-control" placeholder="Seu CPF"/>
                             </div>
                             <div class="form-group">
                                 <label class="form-label semibold">Sua senha:</label>
@@ -59,7 +59,7 @@
                             <a href="../admin/dashboard.html" class="btn btn-rounded btn-primary">Entrar</a>
                         </div>
                         <div class="divider-top">
-                            <p class="sign-note">Não possui conta?
+                            <p class="sign-note">Não possui acesso?
                                 <a href="#" data-toggle="modal" data-target="#ModalCadastro">Solicite seu acesso</a></p>
                         </div>
                     </form>
@@ -70,7 +70,7 @@
         
         
         <div class="modal fade modal-custom" id="ModalLembrarSenha" role="dialog" aria-labelledby="ModalLembrarSenha" aria-hidden="true">
-            <div class="modal-dialog modal-sm modal-center-v">
+            <div class="modal-dialog modal-center-v">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="modal-close" data-dismiss="modal" aria-label="Close">
@@ -80,16 +80,55 @@
                         <p>Informe o e-mail para que você possa resetar sua senha:</p>
                     </div>
                     <div class="modal-body">
-                        <div class="form-group">
-                            <label class="form-label semibold">Seu e-mail:</label>
-                            <input type="text" class="form-control" placeholder="E-mail ou Nome de usuário"/>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label class="form-label semibold">Seu e-mail:</label>
+                                    <input type="text" class="form-control" placeholder="E-mail ou Nome de usuário"/>
+                                </div>
+                            </div>
+                        </div>
+                    
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-rounded btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#ModalMudarSenha">Enviar</button>
+                        <button type="submit" class="btn btn-rounded btn-inline btn-secondary-outline" data-dismiss="modal">Cancelar</button>
+                    </div>
+                
+                </div>
+            </div>
+        </div><!--.modal -->
+        
+        <div class="modal fade modal-custom" id="ModalMudarSenha" role="dialog" aria-labelledby="ModalLembrarSenha" aria-hidden="true">
+            <div class="modal-dialog modal-center-v">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="modal-close" data-dismiss="modal" aria-label="Close">
+                            <i class="font-icon-close-2"></i>
+                        </button>
+                        <h4 class="modal-title">Defina sua senha</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="">
+                                    <p>Olá
+                                        <strong>Pedro da Silva,</strong> você precisa inserir um senha para acessar os sistema:
+                                    </p>
+                                </div>
+                                
+                                <div class="form-group mt-md">
+                                    <label class="form-label semibold">Sua senha</label>
+                                    <input id="hide-show-password" type="password" class="form-control" placeholder="Sua senha">
+                                    <small class="text-muted">Utilize números, letras e caracteres especiais</small>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-rounded btn-primary">Enviar</button>
-                        <button type="button" class="btn btn-rounded btn-default" data-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-rounded btn-primary" data-dismiss="modal" data-toggle="modal">Enviar</button>
+                        <button type="submit" class="btn btn-rounded btn-inline btn-secondary-outline" data-dismiss="modal">Cancelar</button>
                     </div>
-                
                 </div>
             </div>
         </div><!--.modal -->
@@ -112,7 +151,7 @@
                                     <div class="row">
                                         <div class="col-md-9">
                                             <h5 class="semibold">
-                                                <i class="fa fa-sitemap mr-xs" aria-hidden="true"></i> Vínculo do Usuário
+                                                <i class="fa fa-sitemap mr-xs" aria-hidden="true"></i> Vínculo do usuário
                                             </h5>
                                         </div>
                                     </div>
@@ -159,8 +198,10 @@
                                             </fieldset>
                                         </div>
                                         <div class="col-sm-3">
-                                            <label class="form-label semibold">Nascimento</label>
-                                            <input type="tel" class="form-control" id="" name="" placeholder="00/00/0000">
+                                            <fieldset class="form-group">
+                                                <label class="form-label semibold">Nascimento</label>
+                                                <input type="tel" class="form-control" id="" name="" placeholder="00/00/0000">
+                                            </fieldset>
                                         </div>
                                         <div class="col-sm-3">
                                             <fieldset class="form-group">
@@ -176,12 +217,16 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-4">
-                                            <label class="form-label semibold">RG<span class="semibold text-danger">*</span></label>
-                                            <input type="tel" class="form-control" id="" name="" placeholder="00/00/0000">
+                                            <fieldset class="form-group">
+                                                <label class="form-label semibold">RG<span class="semibold text-danger">*</span></label>
+                                                <input type="tel" class="form-control" id="" name="" placeholder="00/00/0000">
+                                            </fieldset>
                                         </div>
                                         <div class="col-sm-4">
-                                            <label class="form-label semibold">Órgão emissor<span class="semibold text-danger">*</span></label>
-                                            <input type="text" class="form-control" id="" name="" placeholder="00/00/0000">
+                                            <fieldset class="form-group">
+                                                <label class="form-label semibold">Órgão emissor<span class="semibold text-danger">*</span></label>
+                                                <input type="text" class="form-control" id="" name="" placeholder="00/00/0000">
+                                            </fieldset>
                                         </div>
                                         <div class="col-sm-4">
                                             <fieldset class="form-group">
@@ -246,7 +291,7 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-sm-3">
+                                        <div class="col-sm-4">
                                             <fieldset class="form-group">
                                                 <label class="form-label semibold">Estado:
                                                     <span class="semibold text-danger">*</span></label>
@@ -257,7 +302,7 @@
                                                 </select>
                                             </fieldset>
                                         </div>
-                                        <div class="col-sm-3">
+                                        <div class="col-sm-4">
                                             <fieldset class="form-group">
                                                 <label class="form-label semibold">Município:
                                                     <span class="semibold text-danger">*</span></label>
@@ -268,101 +313,36 @@
                                                 </select>
                                             </fieldset>
                                         </div>
-                                        <div class="col-sm-3">
+                                        <div class="col-sm-4">
                                             <label class="form-label semibold">Bairro</label>
                                             <input type="text" class="form-control" id="" name="" placeholder="Número">
                                         </div>
-                                        <div class="col-sm-3">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
                                             <fieldset class="form-group">
                                                 <label class="form-label semibold">CEP</label>
                                                 <input type="text" class="form-control" placeholder="CEP">
                                             </fieldset>
                                         </div>
+                                        <div class="col-sm-6">
+                                            <fieldset class="form-group">
+                                                <label class="form-label semibold">Telefone</label>
+                                                <input type="tel" class="form-control" id="" name="" placeholder="(00)0000-0000">
+                                            </fieldset>
+                                        </div>
                                     </div>
+                                
                                 </div>
                             </section>
-                            <section class="box-typical">
-                                <header class="box-typical-header header-bordered">
-                                    <div class="tbl-row">
-                                        <div class="tbl-cell tbl-cell-title">
-                                            <h5 class="semibold">
-                                                <i class="fa fa-phone mr-xs" aria-hidden="true"></i> Telefones
-                                            </h5>
-                                        </div>
-                                        <div class="tbl-cell tbl-cell-action-bordered">
-                                            <div>
-                                                <button type="button" class="action-btn" data-toggle="collapse" data-target="#add-telefone" aria-expanded="false" aria-controls="add-telefone">
-                                                    <i class="fa fa-plus-circle mr-xs"></i>Adicionar
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </header>
-                                <div class="p-0">
-                                    <div class="collapse" id="add-telefone">
-                                        <div class="clearfix p-a mb-0 divider-bottom">
-                                            <div class="col-sm-5">
-                                                <label class="form-label semibold" for="">Tipo</label>
-                                                <select class="select2 select2-arrow">
-                                                    <option>Selecione</option>
-                                                    <option>Principal</option>
-                                                    <option>Comercial</option>
-                                                    <option>Celular</option>
-                                                    <option>Fax</option>
-                                                    <option>Outros</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-sm-7">
-                                                <label class="form-label semibold" for="">Número</label>
-                                                <div class="input-group">
-                                                    <input type="tel" class="form-control telefone" placeholder="Número" id="telefone-1">
-                                                    <span class="input-group-btn">
-                                                                          <button class="btn btn-secondary-outline" type="button">
-                                                                              <i class="fa fa-plus" aria-hidden="true"></i>
-                                                                          </button>
-                                                                        </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="table-responsive">
-                                        <table class="table-hover table-box-typical tbl-typical">
-                                            <thead>
-                                                <tr>
-                                                    <th class="text-center">
-                                                        <div>Tipo</div>
-                                                    </th>
-                                                    <th class="text-center">
-                                                        <div>Telefone</div>
-                                                    </th>
-                                                    <th class="text-center"></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>
-                                                        <p>Principal</p></td>
-                                                    <td>
-                                                        (00) 00000000
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <button type="button" class="btn btn-clear btn-xs" data-toggle="tooltip" data-placement="top" title="remover">
-                                                            <i class="fa fa-times mr-xs text-danger" aria-hidden="true"></i>
-                                                        </button>
-                                                    </td>
-                                                </tr>
-                    
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </section>
+                            
                             <section class="card card-default">
                                 <header class="card-header">
                                     <div class="row">
                                         <div class="col-md-9">
                                             <h5 class="semibold">
-                                                <i class="fa fa-suitcase mr-xs" aria-hidden="true"></i> Dados Funcionais</h5>
+                                                <i class="fa fa-suitcase mr-xs" aria-hidden="true"></i> Dados funcionais
+                                            </h5>
                                         </div>
                                     </div>
                                 </header>
@@ -417,7 +397,72 @@
                                                 <input type="text" class="form-control" id="" name="" placeholder="Nome">
                                             </fieldset>
                                         </div>
-                                        
+                                    
+                                    </div>
+                                </div>
+                            </section>
+                            <section class="box-typical">
+                                <header class="box-typical-header header-bordered">
+                                    <div class="tbl-row">
+                                        <div class="tbl-cell tbl-cell-title">
+                                            <h5 class="semibold">
+                                                <i class="fa fa-gears mr-xs" aria-hidden="true"></i> Função
+                                            </h5>
+                                        </div>
+                                        <div class="tbl-cell tbl-cell-action-bordered">
+                                            <div>
+                                                <button type="button" class="action-btn" data-toggle="collapse" data-target="#add-funcao" aria-expanded="false" aria-controls="add-funcao">
+                                                    <i class="fa fa-plus-circle mr-xs"></i>Adicionar
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </header>
+                                <div class="p-0">
+                                    <div class="collapse" id="add-funcao">
+                                        <div class="clearfix p-a mb-0 divider-bottom">
+                                            <div class="col-sm-12">
+                                                <label class="form-label semibold" for="">Função</label>
+                                                <div class="input-group">
+                                                    <input type="tel" class="form-control" placeholder="Descrição" id="">
+                                                    <span class="input-group-btn">
+                                                                          <button class="btn btn-secondary-outline" type="button">
+                                                                              <i class="fa fa-plus" aria-hidden="true"></i> Adicionar
+                                                                          </button>
+                                                                        </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table-hover table-box-typical tbl-typical">
+                                            <thead>
+                                                <tr>
+                                                    <th class="text-center">
+                                                        <div>Função</div>
+                                                    </th>
+                                                    <th class="">
+                                                        <div>Descrição</div>
+                                                    </th>
+                                                    <th class="text-center"></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <p>Entregador</p></td>
+                                                    <td>
+                                                    
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <button type="button" class="btn btn-clear btn-xs" data-toggle="tooltip" data-placement="top" title="remover">
+                                                            <i class="fa fa-times mr-xs text-danger" aria-hidden="true"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </section>
@@ -426,28 +471,14 @@
                                     <div class="row">
                                         <div class="col-md-9">
                                             <h5 class="semibold">
-                                                <i class="fa fa-gears mr-xs" aria-hidden="true"></i> Função e acessos</h5>
+                                                <i class="fa fa-user-o" aria-hidden="true"></i> Perfil
+                                            </h5>
                                         </div>
                                     </div>
                                 </header>
                                 <div class="card-block">
                                     <div class="row">
-                                        <div class="col-sm-6">
-                                            <label class="form-label semibold" for="">Vincular função/funções:<span class="semibold text-danger">*</span></label>
-                                            
-                                            <!--<textarea class="tags-editor-textarea"></textarea>-->
-    
-                                            <!-- Desabilitado porque deu erro com caracteres especiais-->
-                                            <select class="select2 select2-withtags" multiple="multiple" data-tags="true" data-placeholder="Selecione ou insira" data-allow-clear="true">
-                                                <option>Selecione</option>
-                                                <option>Administrador</option>
-                                                <option>Gestor Contrato</option>
-                                                <option>Fiscal</option>
-                                            </select>
-                                            <small class="text-muted">Selecione uma função já existente, ou digite uma nova</small>
-                                            
-                                        </div>
-                                        <div class="col-sm-6">
+                                        <div class="col-sm-4">
                                             <fieldset class="form-group">
                                                 <label class="form-label semibold">Perfil:
                                                     <span class="semibold text-danger">*</span></label>
@@ -458,15 +489,18 @@
                                                 </select>
                                             </fieldset>
                                         </div>
+                                        <div class="col-sm-8">
+                                            <fieldset class="form-group">
+                                                <label class="form-label semibold" for="">Motivos:</label>
+                                                <textarea rows="4" class="form-control" placeholder="Motivos" id="motivos-textarea"></textarea>
+                                                <small>Você tem
+                                                    <span id="motivos-textarea-counter" class="counter-value semibold"></span> caracteres restantes.
+                                                </small>
+                                            </fieldset>
+                                        </div>
                                     </div>
                                     <div class="row mt-md">
-                                        <div class="col-sm-12">
-                                            <label class="form-label semibold" for="">Motivos:</label>
-                                            <textarea rows="4" class="form-control" placeholder="Motivos" id="motivos-textarea"></textarea>
-                                            <small>Você tem
-                                                <span id="motivos-textarea-counter" class="counter-value semibold"></span> caracteres restantes.
-                                            </small>
-                                        </div>
+                                    
                                     </div>
                                 </div>
                             </section>
@@ -504,7 +538,7 @@
                                                     <input type="tel" class="form-control" placeholder="Descrição" id="">
                                                     <span class="input-group-btn">
                                                                           <button class="btn btn-secondary-outline" type="button">
-                                                                              <i class="fa fa-plus" aria-hidden="true"></i>
+                                                                              <i class="fa fa-plus" aria-hidden="true"></i> Adicionar
                                                                           </button>
                                                                         </span>
                                                 </div>
@@ -537,17 +571,17 @@
                                                         </button>
                                                     </td>
                                                 </tr>
-                    
+                                            
                                             </tbody>
                                         </table>
                                     </div>
                                 </div>
                             </section>
                         </div>
-                    
+                        
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-success btn-rounded">Exemplo de Validar</button>
-                            <button type="button" class="btn btn-success btn-rounded swal-btn-cancel" data-dismiss="modal">Exemplo ao Enviar</button>
+                            <button type="submit" class="btn btn-success btn-rounded swal-btn-cancel" data-dismiss="modal">Exemplo ao enviar</button>
+                            <button type="submit" class="btn btn-rounded btn-inline btn-secondary-outline">Cancelar</button>
                         </div>
                     </form>
                 </div>
@@ -577,14 +611,14 @@
         <script src="../../js/lib/select2/i18n/pt-BR.js"></script>
         
         
-        <script src="../../js/lib/input-mask/jquery.mask.min.js"></script>
-        <script src="../../js/lib/jquery-validate/jquery.validate.min.js"></script>
-    
         <script src="../../js/lib/jquery-tag-editor/jquery.tag-editor.min.js"></script>
-    
+        
         <script src="../../js/lib/jquery-simply-countable/jquery.simplyCountable.js"></script>
         
         <script src="../../js/lib/bootstrap-sweetalert/sweetalert.min.js"></script>
+        
+        <script src="../../js/lib/hide-show-password/bootstrap-show-password.min.js"></script>
+        <script src="../../js/lib/hide-show-password/bootstrap-show-password-init.js"></script>
         
         <script src="../../js/app.js"></script>
         <script src="login-index.js"></script>
