@@ -56,7 +56,7 @@
                                     <a href="#" data-toggle="modal" data-target="#ModalLembrarSenha">Esqueci a senha</a>
                                 </div>
                             </div>
-                            <a href="../admin/dashboard.html" class="btn btn-rounded btn-primary">Entrar</a>
+                            <a href="../admin/gerenciar-solicitacoes.html" class="btn btn-rounded btn-primary">Entrar</a>
                         </div>
                         <div class="divider-top">
                             <p class="sign-note">Não possui acesso?
@@ -146,437 +146,453 @@
                             <p class="text-info">As solicitações serão avaliadas em até 5 dias úteis</p>
                         </div>
                         <div class="modal-body">
-                            <section class="card card-default">
-                                <header class="card-header">
-                                    <div class="row">
-                                        <div class="col-md-9">
-                                            <h5 class="semibold">
-                                                <i class="fa fa-sitemap mr-xs" aria-hidden="true"></i> Vínculo do usuário
-                                            </h5>
+                            <div class="row">
+                                <div class="col-12">
+                                    <section class="card card-default">
+                                        <header class="card-header">
+                                            <div class="row">
+                                                <div class="col-md-9">
+                                                    <h5 class="semibold">
+                                                        <i class="fa fa-sitemap mr-xs" aria-hidden="true"></i> Vínculo do usuário
+                                                    </h5>
+                                                </div>
+                                            </div>
+                                        </header>
+                                        <div class="card-block">
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <fieldset class="form-group">
+                                                        <label class="form-label semibold">Vínculo:
+                                                            <span class="semibold text-danger">*</span></label>
+                                                        <select id="" class="form-control">
+                                                            <option>1</option>
+                                                            <option>2</option>
+                                                            <option>3</option>
+                                                            <option>4</option>
+                                                        </select>
+                                                    </fieldset>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <fieldset class="form-group">
+                                                        <label class="form-label semibold">CPF *</label>
+                                                        <input type="text" class="form-control" id="cpf" name="cpf">
+                                                    </fieldset>
+                                                </div>
+                                            </div>
+                
                                         </div>
-                                    </div>
-                                </header>
-                                <div class="card-block">
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <fieldset class="form-group">
-                                                <label class="form-label semibold">Vínculo:
-                                                    <span class="semibold text-danger">*</span></label>
-                                                <select class="select2 select2-arrow" id="selectvinculo" name="selectvinculo">
-                                                    <option value="0">Servidor</option>
-                                                    <option value="1">Servidor</option>
-                                                    <option value="2">Estagiário</option>
-                                                    <option value="3">Terceirizado</option>
-                                                </select>
-                                            </fieldset>
+                                    </section>
+                                    <section class="card card-default">
+                                        <header class="card-header">
+                                            <div class="row">
+                                                <div class="col-md-9">
+                                                    <h5 class="semibold">
+                                                        <i class="fa fa-user mr-xs" aria-hidden="true"></i> Dados pessoais
+                                                    </h5>
+                                                </div>
+                                            </div>
+                                        </header>
+                                        <div class="card-block">
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <fieldset class="form-group">
+                                                        <label class="form-label semibold">Nome<span class="semibold text-danger">*</span></label>
+                                                        <input type="text" class="form-control" id="" name="" placeholder="Nome">
+                                                    </fieldset>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <fieldset class="form-group">
+                                                        <label class="form-label semibold">Nascimento</label>
+                                                        <input type="tel" class="form-control" id="" name="" placeholder="00/00/0000">
+                                                    </fieldset>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <fieldset class="form-group">
+                                                        <label class="form-label semibold">Sexo:
+                                                            <span class="semibold text-danger">*</span></label>
+                                                        <select id="" class="form-control">
+                                                            <option>1</option>
+                                                            <option>2</option>
+                                                            <option>3</option>
+                                                            <option>4</option>
+                                                        </select>
+                                                    </fieldset>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <fieldset class="form-group">
+                                                        <label class="form-label semibold">RG<span class="semibold text-danger">*</span></label>
+                                                        <input type="tel" class="form-control" id="" name="" placeholder="00/00/0000">
+                                                    </fieldset>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <fieldset class="form-group">
+                                                        <label class="form-label semibold">Órgão emissor<span class="semibold text-danger">*</span></label>
+                                                        <input type="text" class="form-control" id="" name="" placeholder="00/00/0000">
+                                                    </fieldset>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <fieldset class="form-group">
+                                                        <label class="form-label semibold">UF:
+                                                            <span class="semibold text-danger">*</span></label>
+                                                        <select id="" class="form-control">
+                                                            <option>1</option>
+                                                            <option>2</option>
+                                                            <option>3</option>
+                                                            <option>4</option>
+                                                        </select>
+                                                    </fieldset>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <fieldset class="form-group">
+                                                        <label class="form-label semibold">Estado (Naturalidade):
+                                                            <span class="semibold text-danger">*</span></label>
+                                                        <select id="" class="form-control">
+                                                            <option>1</option>
+                                                            <option>2</option>
+                                                            <option>3</option>
+                                                            <option>4</option>
+                                                        </select>
+                                                    </fieldset>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <fieldset class="form-group">
+                                                        <label class="form-label semibold">Município (Naturalidade):
+                                                            <span class="semibold text-danger">*</span></label>
+                                                        <select id="" class="form-control">
+                                                            <option>1</option>
+                                                            <option>2</option>
+                                                            <option>3</option>
+                                                            <option>4</option>
+                                                        </select>
+                                                    </fieldset>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="col-sm-6">
-                                            <fieldset class="form-group">
-                                                <label class="form-label semibold">CPF *</label>
-                                                <input type="text" class="form-control" id="cpf" name="cpf">
-                                            </fieldset>
+                                    </section>
+                                    <section class="card card-default">
+                                        <header class="card-header">
+                                            <div class="row">
+                                                <div class="col-md-9">
+                                                    <h5 class="semibold">
+                                                        <i class="fa fa-building-o mr-xs" aria-hidden="true"></i> Endereço
+                                                    </h5>
+                                                </div>
+                                            </div>
+                                        </header>
+                                        <div class="card-block">
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <fieldset class="form-group">
+                                                        <label class="form-label semibold">Endereço<span class="semibold text-danger">*</span></label>
+                                                        <input type="text" class="form-control" id="" name="" placeholder="Nome">
+                                                    </fieldset>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <fieldset class="form-group">
+                                                        <label class="form-label semibold">Complemento<span class="semibold text-danger">*</span></label>
+                                                        <input type="text" class="form-control" id="" name="" placeholder="Nome">
+                                                    </fieldset>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <fieldset class="form-group">
+                                                        <label class="form-label semibold">Estado:
+                                                            <span class="semibold text-danger">*</span></label>
+                                                        <select id="" class="form-control">
+                                                            <option>1</option>
+                                                            <option>2</option>
+                                                            <option>3</option>
+                                                            <option>4</option>
+                                                        </select>
+                                                    </fieldset>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <fieldset class="form-group">
+                                                        <label class="form-label semibold">Município:
+                                                            <span class="semibold text-danger">*</span></label>
+                                                        <select id="" class="form-control">
+                                                            <option>1</option>
+                                                            <option>2</option>
+                                                            <option>3</option>
+                                                            <option>4</option>
+                                                        </select>
+                                                    </fieldset>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <label class="form-label semibold">Bairro</label>
+                                                    <input type="text" class="form-control" id="" name="" placeholder="Número">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <fieldset class="form-group">
+                                                        <label class="form-label semibold">CEP</label>
+                                                        <input type="text" class="form-control" placeholder="CEP">
+                                                    </fieldset>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <fieldset class="form-group">
+                                                        <label class="form-label semibold">Telefone</label>
+                                                        <input type="tel" class="form-control" id="" name="" placeholder="(00)0000-0000">
+                                                    </fieldset>
+                                                </div>
+                                            </div>
+                
                                         </div>
-                                    </div>
-                                
-                                </div>
-                            </section>
-                            <section class="card card-default">
-                                <header class="card-header">
-                                    <div class="row">
-                                        <div class="col-md-9">
-                                            <h5 class="semibold">
-                                                <i class="fa fa-user mr-xs" aria-hidden="true"></i> Dados pessoais </h5>
+                                    </section>
+            
+                                    <section class="card card-default">
+                                        <header class="card-header">
+                                            <div class="row">
+                                                <div class="col-md-9">
+                                                    <h5 class="semibold">
+                                                        <i class="fa fa-suitcase mr-xs" aria-hidden="true"></i> Dados funcionais
+                                                    </h5>
+                                                </div>
+                                            </div>
+                                        </header>
+                                        <div class="card-block">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <fieldset class="form-group">
+                                                        <label class="form-label semibold">E-mail<span class="semibold text-danger">*</span></label>
+                                                        <input type="email" class="form-control" id="" name="" placeholder="Nome">
+                                                    </fieldset>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <fieldset class="form-group">
+                                                        <label class="form-label semibold">Confirme seu e-mail<span class="semibold text-danger">*</span></label>
+                                                        <input type="email" class="form-control" id="" name="" placeholder="Nome">
+                                                    </fieldset>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <fieldset class="form-group">
+                                                        <label class="form-label semibold">Unidade:
+                                                            <span class="semibold text-danger">*</span></label>
+                                                        <select id="" class="form-control">
+                                                            <option>1</option>
+                                                            <option>2</option>
+                                                            <option>3</option>
+                                                            <option>4</option>
+                                                        </select>
+                                                    </fieldset>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <fieldset class="form-group">
+                                                        <label class="form-label semibold">SIAPE<span class="semibold text-danger">*</span></label>
+                                                        <input type="text" class="form-control" id="" name="" placeholder="Nome">
+                                                    </fieldset>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <fieldset class="form-group">
+                                                        <label class="form-label semibold">Órgão<span class="semibold text-danger">*</span></label>
+                                                        <input type="text" class="form-control" id="" name="" placeholder="Nome">
+                                                    </fieldset>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <fieldset class="form-group">
+                                                        <label class="form-label semibold">Empresa<span class="semibold text-danger">*</span></label>
+                                                        <input type="text" class="form-control" id="" name="" placeholder="Nome">
+                                                    </fieldset>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <fieldset class="form-group">
+                                                        <label class="form-label semibold">Cargo<span class="semibold text-danger">*</span></label>
+                                                        <input type="text" class="form-control" id="" name="" placeholder="Nome">
+                                                    </fieldset>
+                                                </div>
+                    
+                                            </div>
                                         </div>
-                                    </div>
-                                </header>
-                                <div class="card-block">
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <fieldset class="form-group">
-                                                <label class="form-label semibold">Nome<span class="semibold text-danger">*</span></label>
-                                                <input type="text" class="form-control" id="" name="" placeholder="Nome">
-                                            </fieldset>
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <fieldset class="form-group">
-                                                <label class="form-label semibold">Nascimento</label>
-                                                <input type="tel" class="form-control" id="" name="" placeholder="00/00/0000">
-                                            </fieldset>
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <fieldset class="form-group">
-                                                <label class="form-label semibold">Sexo:
-                                                    <span class="semibold text-danger">*</span></label>
-                                                <select class="select2 select2-arrow" id="sexo" name="sexo">
-                                                    <option value="0" selected>Selecione</option>
-                                                    <option value="1">Feminino</option>
-                                                    <option value="2">Masculino</option>
-                                                </select>
-                                            </fieldset>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-4">
-                                            <fieldset class="form-group">
-                                                <label class="form-label semibold">RG<span class="semibold text-danger">*</span></label>
-                                                <input type="tel" class="form-control" id="" name="" placeholder="00/00/0000">
-                                            </fieldset>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <fieldset class="form-group">
-                                                <label class="form-label semibold">Órgão emissor<span class="semibold text-danger">*</span></label>
-                                                <input type="text" class="form-control" id="" name="" placeholder="00/00/0000">
-                                            </fieldset>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <fieldset class="form-group">
-                                                <label class="form-label semibold">UF:
-                                                    <span class="semibold text-danger">*</span></label>
-                                                <select class="select2 select2-arrow" id="UF" name="sexo">
-                                                    <option value="0" selected>Selecione</option>
-                                                    <option value="1">Distrito Federal</option>
-                                                    <option value="2">Bahia</option>
-                                                </select>
-                                            </fieldset>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <fieldset class="form-group">
-                                                <label class="form-label semibold">Estado (Naturalidade):
-                                                    <span class="semibold text-danger">*</span></label>
-                                                <select class="select2 select2-arrow" id="UF" name="sexo">
-                                                    <option value="0" selected>Selecione</option>
-                                                    <option value="1">Distrito Federal</option>
-                                                    <option value="2">Bahia</option>
-                                                </select>
-                                            </fieldset>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <fieldset class="form-group">
-                                                <label class="form-label semibold">Município (Naturalidade):
-                                                    <span class="semibold text-danger">*</span></label>
-                                                <select class="select2 select2-arrow" id="UF" name="sexo">
-                                                    <option value="0" selected>Selecione</option>
-                                                    <option value="1">Distrito Federal</option>
-                                                    <option value="2">Bahia</option>
-                                                </select>
-                                            </fieldset>
-                                        </div>
-                                    </div>
-                                </div>
-                            </section>
-                            <section class="card card-default">
-                                <header class="card-header">
-                                    <div class="row">
-                                        <div class="col-md-9">
-                                            <h5 class="semibold">
-                                                <i class="fa fa-building-o mr-xs" aria-hidden="true"></i> Endereço </h5>
-                                        </div>
-                                    </div>
-                                </header>
-                                <div class="card-block">
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <fieldset class="form-group">
-                                                <label class="form-label semibold">Endereço<span class="semibold text-danger">*</span></label>
-                                                <input type="text" class="form-control" id="" name="" placeholder="Nome">
-                                            </fieldset>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <fieldset class="form-group">
-                                                <label class="form-label semibold">Complemento<span class="semibold text-danger">*</span></label>
-                                                <input type="text" class="form-control" id="" name="" placeholder="Nome">
-                                            </fieldset>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-4">
-                                            <fieldset class="form-group">
-                                                <label class="form-label semibold">Estado:
-                                                    <span class="semibold text-danger">*</span></label>
-                                                <select class="select2 select2-arrow" id="UF" name="sexo">
-                                                    <option value="0" selected>Selecione</option>
-                                                    <option value="1">Distrito Federal</option>
-                                                    <option value="2">Bahia</option>
-                                                </select>
-                                            </fieldset>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <fieldset class="form-group">
-                                                <label class="form-label semibold">Município:
-                                                    <span class="semibold text-danger">*</span></label>
-                                                <select class="select2 select2-arrow" id="UF" name="sexo">
-                                                    <option value="0" selected>Selecione</option>
-                                                    <option value="1">Distrito Federal</option>
-                                                    <option value="2">Bahia</option>
-                                                </select>
-                                            </fieldset>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <label class="form-label semibold">Bairro</label>
-                                            <input type="text" class="form-control" id="" name="" placeholder="Número">
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <fieldset class="form-group">
-                                                <label class="form-label semibold">CEP</label>
-                                                <input type="text" class="form-control" placeholder="CEP">
-                                            </fieldset>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <fieldset class="form-group">
-                                                <label class="form-label semibold">Telefone</label>
-                                                <input type="tel" class="form-control" id="" name="" placeholder="(00)0000-0000">
-                                            </fieldset>
-                                        </div>
-                                    </div>
-                                
-                                </div>
-                            </section>
+                                    </section>
+                                    <section class="box-typical">
+                                        <header class="box-typical-header header-bordered">
+                                            <div class="tbl-row">
+                                                <div class="tbl-cell tbl-cell-title">
+                                                    <h5 class="semibold">
+                                                        <i class="fa fa-gears mr-xs" aria-hidden="true"></i> Função
+                                                    </h5>
+                                                </div>
+                                                <div class="tbl-cell tbl-cell-action-bordered">
+                                                    <div>
+                                                        <button type="button" class="action-btn" data-toggle="collapse" data-target="#add-funcao" aria-expanded="false" aria-controls="add-funcao">
+                                                            <i class="fa fa-plus-circle mr-xs"></i>Adicionar
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </header>
+                                        <div class="p-0">
+                                            <div class="collapse" id="add-funcao">
+                                                <div class="clearfix p-a mb-0 divider-bottom">
+                                                    <div class="col-sm-12">
+                                                        <label class="form-label semibold" for="">Função</label>
+                                                        <div class="input-group">
+                                                            <input type="tel" class="form-control" placeholder="Descrição" id="">
+                                                            <span class="input-group-btn">
+                                                                          <button class="btn btn-secondary-outline" type="button">
+                                                                              <i class="fa fa-plus" aria-hidden="true"></i> Adicionar
+                                                                          </button>
+                                                                        </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="table-responsive">
+                                                <table class="table-hover table-box-typical tbl-typical">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="text-center">
+                                                                <div>Função</div>
+                                                            </th>
+                                                            <th class="">
+                                                                <div>Descrição</div>
+                                                            </th>
+                                                            <th class="text-center"></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                <p>Entregador</p></td>
+                                                            <td>
+                                    
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <button type="button" class="btn btn-clear btn-xs" data-toggle="tooltip" data-placement="top" title="remover">
+                                                                    <i class="fa fa-times mr-xs text-danger" aria-hidden="true"></i>
+                                                                </button>
+                                                            </td>
+                                                        </tr>
                             
-                            <section class="card card-default">
-                                <header class="card-header">
-                                    <div class="row">
-                                        <div class="col-md-9">
-                                            <h5 class="semibold">
-                                                <i class="fa fa-suitcase mr-xs" aria-hidden="true"></i> Dados funcionais
-                                            </h5>
-                                        </div>
-                                    </div>
-                                </header>
-                                <div class="card-block">
-                                    <div class="row">
-                                        <div class="col-sm-4">
-                                            <fieldset class="form-group">
-                                                <label class="form-label semibold">E-mail<span class="semibold text-danger">*</span></label>
-                                                <input type="email" class="form-control" id="" name="" placeholder="Nome">
-                                            </fieldset>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <fieldset class="form-group">
-                                                <label class="form-label semibold">Confirme seu e-mail<span class="semibold text-danger">*</span></label>
-                                                <input type="email" class="form-control" id="" name="" placeholder="Nome">
-                                            </fieldset>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <fieldset class="form-group">
-                                                <label class="form-label semibold">Unidade:
-                                                    <span class="semibold text-danger">*</span></label>
-                                                <select class="select2 select2-arrow" id="" name="sexo">
-                                                    <option value="0" selected>Selecione</option>
-                                                    <option value="1">Distrito Federal</option>
-                                                    <option value="2">Bahia</option>
-                                                </select>
-                                            </fieldset>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-3">
-                                            <fieldset class="form-group">
-                                                <label class="form-label semibold">SIAPE<span class="semibold text-danger">*</span></label>
-                                                <input type="text" class="form-control" id="" name="" placeholder="Nome">
-                                            </fieldset>
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <fieldset class="form-group">
-                                                <label class="form-label semibold">Órgão<span class="semibold text-danger">*</span></label>
-                                                <input type="text" class="form-control" id="" name="" placeholder="Nome">
-                                            </fieldset>
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <fieldset class="form-group">
-                                                <label class="form-label semibold">Empresa<span class="semibold text-danger">*</span></label>
-                                                <input type="text" class="form-control" id="" name="" placeholder="Nome">
-                                            </fieldset>
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <fieldset class="form-group">
-                                                <label class="form-label semibold">Cargo<span class="semibold text-danger">*</span></label>
-                                                <input type="text" class="form-control" id="" name="" placeholder="Nome">
-                                            </fieldset>
-                                        </div>
-                                    
-                                    </div>
-                                </div>
-                            </section>
-                            <section class="box-typical">
-                                <header class="box-typical-header header-bordered">
-                                    <div class="tbl-row">
-                                        <div class="tbl-cell tbl-cell-title">
-                                            <h5 class="semibold">
-                                                <i class="fa fa-gears mr-xs" aria-hidden="true"></i> Função
-                                            </h5>
-                                        </div>
-                                        <div class="tbl-cell tbl-cell-action-bordered">
-                                            <div>
-                                                <button type="button" class="action-btn" data-toggle="collapse" data-target="#add-funcao" aria-expanded="false" aria-controls="add-funcao">
-                                                    <i class="fa fa-plus-circle mr-xs"></i>Adicionar
-                                                </button>
+                                                    </tbody>
+                                                </table>
                                             </div>
                                         </div>
-                                    </div>
-                                </header>
-                                <div class="p-0">
-                                    <div class="collapse" id="add-funcao">
-                                        <div class="clearfix p-a mb-0 divider-bottom">
-                                            <div class="col-sm-12">
-                                                <label class="form-label semibold" for="">Função</label>
-                                                <div class="input-group">
-                                                    <input type="tel" class="form-control" placeholder="Descrição" id="">
-                                                    <span class="input-group-btn">
+                                    </section>
+                                    <section class="card card-default">
+                                        <header class="card-header">
+                                            <div class="row">
+                                                <div class="col-md-9">
+                                                    <h5 class="semibold">
+                                                        <i class="fa fa-user-o" aria-hidden="true"></i> Perfil
+                                                    </h5>
+                                                </div>
+                                            </div>
+                                        </header>
+                                        <div class="card-block">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <fieldset class="form-group">
+                                                        <label class="form-label semibold">Perfil:
+                                                            <span class="semibold text-danger">*</span></label>
+                                                        <select id="" class="form-control">
+                                                            <option>1</option>
+                                                            <option>2</option>
+                                                            <option>3</option>
+                                                            <option>4</option>
+                                                        </select>
+                                                    </fieldset>
+                                                </div>
+                                                <div class="col-sm-8">
+                                                    <fieldset class="form-group">
+                                                        <label class="form-label semibold" for="">Motivos:</label>
+                                                        <textarea rows="4" class="form-control" placeholder="Motivos" id="motivos-textarea"></textarea>
+                                                        <small>Você tem
+                                                            <span id="motivos-textarea-counter" class="counter-value semibold"></span> caracteres restantes.
+                                                        </small>
+                                                    </fieldset>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-md">
+                    
+                                            </div>
+                                        </div>
+                                    </section>
+                                    <section class="box-typical">
+                                        <header class="box-typical-header header-bordered">
+                                            <div class="tbl-row">
+                                                <div class="tbl-cell tbl-cell-title">
+                                                    <h5 class="semibold">
+                                                        <i class="fa fa-cloud-upload mr-xs" aria-hidden="true"></i> Arquivos
+                                                    </h5>
+                                                </div>
+                                                <div class="tbl-cell tbl-cell-action-bordered">
+                                                    <div>
+                                                        <button type="button" class="action-btn" data-toggle="collapse" data-target="#add-arquivos" aria-expanded="false" aria-controls="add-arquivos">
+                                                            <i class="fa fa-plus-circle mr-xs"></i>Adicionar
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </header>
+                                        <div class="p-0">
+                                            <div class="collapse" id="add-arquivos">
+                                                <div class="clearfix p-a mb-0 divider-bottom">
+                            
+                                                    <div class="col-sm-6">
+                                
+                                                        <div class="form-group">
+                                                            <label class="form-label semibold" for="">Enviar arquivo</label>
+                                                            <input type="file" class="form-control-file" id="arquivo">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <label class="form-label semibold" for="">Descrição</label>
+                                                        <div class="input-group">
+                                                            <input type="tel" class="form-control" placeholder="Descrição" id="">
+                                                            <span class="input-group-btn">
                                                                           <button class="btn btn-secondary-outline" type="button">
                                                                               <i class="fa fa-plus" aria-hidden="true"></i> Adicionar
                                                                           </button>
                                                                         </span>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="table-responsive">
-                                        <table class="table-hover table-box-typical tbl-typical">
-                                            <thead>
-                                                <tr>
-                                                    <th class="text-center">
-                                                        <div>Função</div>
-                                                    </th>
-                                                    <th class="">
-                                                        <div>Descrição</div>
-                                                    </th>
-                                                    <th class="text-center"></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>
-                                                        <p>Entregador</p></td>
-                                                    <td>
-                                                    
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <button type="button" class="btn btn-clear btn-xs" data-toggle="tooltip" data-placement="top" title="remover">
-                                                            <i class="fa fa-times mr-xs text-danger" aria-hidden="true"></i>
-                                                        </button>
-                                                    </td>
-                                                </tr>
-                                            
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </section>
-                            <section class="card card-default">
-                                <header class="card-header">
-                                    <div class="row">
-                                        <div class="col-md-9">
-                                            <h5 class="semibold">
-                                                <i class="fa fa-user-o" aria-hidden="true"></i> Perfil
-                                            </h5>
-                                        </div>
-                                    </div>
-                                </header>
-                                <div class="card-block">
-                                    <div class="row">
-                                        <div class="col-sm-4">
-                                            <fieldset class="form-group">
-                                                <label class="form-label semibold">Perfil:
-                                                    <span class="semibold text-danger">*</span></label>
-                                                <select class="select2 select2-arrow" id="" name="sexo">
-                                                    <option value="0" selected>Administrador</option>
-                                                    <option value="1">Gestor Contrato</option>
-                                                    <option value="2">Fiscal</option>
-                                                </select>
-                                            </fieldset>
-                                        </div>
-                                        <div class="col-sm-8">
-                                            <fieldset class="form-group">
-                                                <label class="form-label semibold" for="">Motivos:</label>
-                                                <textarea rows="4" class="form-control" placeholder="Motivos" id="motivos-textarea"></textarea>
-                                                <small>Você tem
-                                                    <span id="motivos-textarea-counter" class="counter-value semibold"></span> caracteres restantes.
-                                                </small>
-                                            </fieldset>
-                                        </div>
-                                    </div>
-                                    <div class="row mt-md">
-                                    
-                                    </div>
-                                </div>
-                            </section>
-                            <section class="box-typical">
-                                <header class="box-typical-header header-bordered">
-                                    <div class="tbl-row">
-                                        <div class="tbl-cell tbl-cell-title">
-                                            <h5 class="semibold">
-                                                <i class="fa fa-cloud-upload mr-xs" aria-hidden="true"></i> Arquivos
-                                            </h5>
-                                        </div>
-                                        <div class="tbl-cell tbl-cell-action-bordered">
-                                            <div>
-                                                <button type="button" class="action-btn" data-toggle="collapse" data-target="#add-arquivos" aria-expanded="false" aria-controls="add-arquivos">
-                                                    <i class="fa fa-plus-circle mr-xs"></i>Adicionar
-                                                </button>
+                                            <div class="table-responsive">
+                                                <table class="table-hover table-box-typical tbl-typical">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="text-center">
+                                                                <div>Arquivo</div>
+                                                            </th>
+                                                            <th class="">
+                                                                <div>Descrição</div>
+                                                            </th>
+                                                            <th class="text-center"></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                <p>
+                                                                    <a href="#">autorizacao-gerencia.pdf</a>
+                                                                </p></td>
+                                                            <td>
+                                                                Arquivo de autorização
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <button type="button" class="btn btn-clear btn-xs" data-toggle="tooltip" data-placement="top" title="remover">
+                                                                    <i class="fa fa-times mr-xs text-danger" aria-hidden="true"></i>
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                            
+                                                    </tbody>
+                                                </table>
                                             </div>
                                         </div>
-                                    </div>
-                                </header>
-                                <div class="p-0">
-                                    <div class="collapse" id="add-arquivos">
-                                        <div class="clearfix p-a mb-0 divider-bottom">
-                                            
-                                            <div class="col-sm-6">
-                                                
-                                                <div class="form-group">
-                                                    <label class="form-label semibold" for="">Enviar arquivo</label>
-                                                    <input type="file" class="form-control-file" id="arquivo">
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <label class="form-label semibold" for="">Descrição</label>
-                                                <div class="input-group">
-                                                    <input type="tel" class="form-control" placeholder="Descrição" id="">
-                                                    <span class="input-group-btn">
-                                                                          <button class="btn btn-secondary-outline" type="button">
-                                                                              <i class="fa fa-plus" aria-hidden="true"></i> Adicionar
-                                                                          </button>
-                                                                        </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="table-responsive">
-                                        <table class="table-hover table-box-typical tbl-typical">
-                                            <thead>
-                                                <tr>
-                                                    <th class="text-center">
-                                                        <div>Arquivo</div>
-                                                    </th>
-                                                    <th class="">
-                                                        <div>Descrição</div>
-                                                    </th>
-                                                    <th class="text-center"></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>
-                                                        <p><a href="#">autorizacao-gerencia.pdf</a></p></td>
-                                                    <td>
-                                                        Arquivo de autorização
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <button type="button" class="btn btn-clear btn-xs" data-toggle="tooltip" data-placement="top" title="remover">
-                                                            <i class="fa fa-times mr-xs text-danger" aria-hidden="true"></i>
-                                                        </button>
-                                                    </td>
-                                                </tr>
-                                            
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                    </section>
                                 </div>
-                            </section>
+                            </div>
                         </div>
                         
                         <div class="modal-footer">

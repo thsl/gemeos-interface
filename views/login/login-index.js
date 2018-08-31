@@ -8,10 +8,10 @@
 });
 
 */
-$(window).on('load',function(){
+/*$(window).on('load',function(){
     $('#ModalCadastro').modal('show');
 });
-
+*/
 
 $('.tags-editor-textarea').tagEditor({
     placeholder: 'Digite aqui'
